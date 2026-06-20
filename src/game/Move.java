@@ -1,0 +1,13 @@
+package game;
+
+import Pieces.Position;
+
+public class Move {
+    private Position from;
+    private Position to;
+
+    public Move(Position from, Position to){
+        this.from = from;
+        this.to = to;
+    }
+}

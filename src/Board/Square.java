@@ -1,5 +1,6 @@
 package Board;
 
 import Pieces.AbstractPiece;
+import Pieces.Position;
 
-public record Square(int row, int collumn, boolean hasPiece, AbstractPiece piece) {}
+public record Square(Position position, String positionNotation, boolean hasPiece, AbstractPiece piece) {}

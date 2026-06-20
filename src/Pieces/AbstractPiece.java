@@ -15,6 +15,7 @@ abstract public class AbstractPiece {
     }
 
     // Get the possible moves for the piece, based on the surroundings pieces and board border
+    // TODO - this method should be implemented in the concrete pieces, and should call the getPossibleMovesByMovement and getPossibleMovesByCapture methods
     abstract public List<Position> getPossibleMoves();
     abstract protected List<Position> getPossibleMovesByMovement();
     abstract protected List<Position> getPossibleMovesByCapture();
