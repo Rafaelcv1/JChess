@@ -1,7 +1,6 @@
 package presentation_layer;
 
-import logic_layer.Piece;
-
+import logic_layer.pieces.*;
 import javax.swing.*;
 import java.awt.*;
 

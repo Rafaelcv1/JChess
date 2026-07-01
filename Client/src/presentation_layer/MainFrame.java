@@ -1,21 +1,12 @@
 package presentation_layer;
 
 import javax.swing.*;
-
-import data_layer.ClientConnection;
-import logic_layer.*;
+import logic_layer.pieces.*;
+import logic_layer.MainLogic;
 
 public class MainFrame extends JFrame {
     public MainFrame() {
         super("JChess");
-
-        // try to connect to the server
-        // TODO: shouldn't be the Frame that connects with the server!!!
-        try {
-            ClientConnection.connect("localhost", 1234);
-        } catch (Exception e) {
-            System.out.println("deu erro em conectar com o servidor ó: " + e);
-        }
 
         // gen all Tiles (JButtons), set them Listeners and add them to mainPanel
         for (int i = 0; i < 8; i++) {
@@ -33,14 +24,14 @@ public class MainFrame extends JFrame {
 
         // TODO: receive server's board (shouldn't be in frame too)
         // placeholder for server's board
-        tiles[0][0].setPiece(new Rook(Team.black));
-        tiles[0][7].setPiece(new Rook(Team.black));
-        tiles[0][2].setPiece(new Bishop(Team.black));
-        tiles[0][5].setPiece(new Bishop(Team.black));
-        tiles[7][0].setPiece(new Rook(Team.white));
-        tiles[7][7].setPiece(new Rook(Team.white));
-        tiles[7][5].setPiece(new Bishop(Team.white));
-        tiles[7][2].setPiece(new Bishop(Team.white));
+        tiles[0][0].setPiece(new Rook(Team.BLACK));
+        tiles[0][7].setPiece(new Rook(Team.BLACK));
+        tiles[0][2].setPiece(new Bishop(Team.BLACK));
+        tiles[0][5].setPiece(new Bishop(Team.BLACK));
+        tiles[7][0].setPiece(new Rook(Team.WHITE));
+        tiles[7][7].setPiece(new Rook(Team.WHITE));
+        tiles[7][5].setPiece(new Bishop(Team.WHITE));
+        tiles[7][2].setPiece(new Bishop(Team.WHITE));
 
         //set Frame
         super.setLocationRelativeTo(null);
@@ -48,6 +39,8 @@ public class MainFrame extends JFrame {
         super.setSize(450,500);
         super.setVisible(true);
     }
+
+    //TODO: display possible plays (send lastSelectedTile to MainLogic)
     private void onClick(Tile tile) {
         if (this.lastSelectedTile == null) {
             this.lastSelectedTile = tile;
@@ -55,7 +48,7 @@ public class MainFrame extends JFrame {
             this.lastSelectedTile = null;
         } else {
             try {
-                ClientConnection.movement(this.lastSelectedTile, tile);
+                MainLogic.movement(lastSelectedTile, tile);
                 this.lastSelectedTile = null;
             } catch (Exception e) {
                 System.out.println("deu erro em enviar o movemento ó: " + e);
