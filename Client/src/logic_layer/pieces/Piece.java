@@ -3,7 +3,6 @@ package logic_layer.pieces;
 import javax.swing.*;
 import java.awt.*;
 
-//todo: find a better place to these guys
 public abstract class Piece {
 
     public Piece(Team team) {
