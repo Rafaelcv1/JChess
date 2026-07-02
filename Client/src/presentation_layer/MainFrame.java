@@ -51,7 +51,7 @@ public class MainFrame extends JFrame {
                 MainLogic.movement(lastSelectedTile, tile);
                 this.lastSelectedTile = null;
             } catch (Exception e) {
-                System.out.println("deu erro em enviar o movemento ó: " + e);
+                System.out.println("Error to send the movement to the server: " + e);
             }
         }
     }

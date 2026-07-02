@@ -10,7 +10,7 @@ public class MainLogic {
         try {
             ClientConnection.connect("localhost", 1234);
         } catch (Exception e) {
-            System.out.println("deu erro em conectar com o servidor ó: " + e);
+            System.out.println("Client could not connect to the server: " + e);
         }
     }
     static public void movement(Tile tileIn, Tile tileOut) throws Exception {
